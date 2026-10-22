@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import SettingsPage from "./SettingsPage";
 
-const API = "http://localhost:5001/api";
+const API = "/api";
 
 const categories = [
   "Food",
@@ -62,8 +62,8 @@ function formatDate(value) {
 function Login({ onLogin }) {
   const [mode, setMode] = useState("login");
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("admin@spendwise.com");
-  const [password, setPassword] = useState("demo_password");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -253,15 +253,6 @@ function Login({ onLogin }) {
             </button>
           </form>
 
-          {!registering && (
-            <div className="mt-5 rounded-xl bg-slate-50 p-4">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                Demo account
-              </p>
-              <p className="mt-1 text-xs text-slate-500">admin@spendwise.com</p>
-              <p className="text-xs text-slate-500">demo_password</p>
-            </div>
-          )}
         </div>
       </div>
     </div>

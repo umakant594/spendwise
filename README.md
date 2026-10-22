@@ -1,35 +1,22 @@
 # SpendWise
 
-Current completed milestone: Step 1 — finance dashboard, JWT login, Prisma/SQLite, seeded demo data, accounts, transactions and budgets API.
-
-Demo login:
-- Email: admin@spendwise.com
-- Password: demo_password
+SpendWise is a Vite/React frontend with an Express API, JWT authentication, and Prisma-backed PostgreSQL storage.
 
 ## Backend
 ```powershell
-cd server
 npm install
-npx prisma generate
-npx prisma db push
-npm run seed
-npm run dev
+npm install --prefix server
+npm run dev --prefix server
 ```
-Runs on http://localhost:5001
 
 ## Frontend
 ```powershell
-cd client
-npm install
-npm run dev
+npm install --prefix client
+npm run dev --prefix client
 ```
-Runs on http://localhost:5173
 
-## Important
-Run `npm run seed` once before logging in. It creates the demo user and sample data.
+The Vite development server proxies `/api` requests to the backend on port 5001. Configure PostgreSQL `DATABASE_URL` and `JWT_SECRET` in `server/.env` for local development. For local Vercel development, use `vercel env pull` and `vercel dev`.
 
-Next major steps:
-2. Transactions + Accounts
-3. Budgets + Analytics
-4. Authentication + Settings + Polish
-5. Production check + portfolio/GitHub packaging
+## Deployment
+
+The root Vercel project serves the built frontend and the Express API from a Node.js Function. Neon Postgres provides persistent storage. Vercel environment variables must include `DATABASE_URL` and `JWT_SECRET`; Prisma migrations are stored under `server/prisma/migrations`.

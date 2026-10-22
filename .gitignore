@@ -1,0 +1,27 @@
+.vercel
+.env*
+node_modules
+client/dist
+server/dist
+.agents
+skills-lock.json
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Build output
+dist/
+**/dist/
+
+# Vercel
+.vercel/
